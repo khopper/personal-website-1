@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keith Hopper | Strategic Direction Under Uncertainty</title>
+  <meta name="description" content="I create belief for leaders launching something new inside established organizations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0d0d0d;
+      --paper: #f7f4ee;
+      --ink: #141414;
+      --ink-soft: #2c2c2c;
+      --yellow: #f0dd5d;
+      --yellow-soft: #faf1b8;
+      --line: rgba(0, 0, 0, 0.2);
+      --content: min(1120px, calc(100vw - 3rem));
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+      background: var(--black);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      color: #121212;
+    }
+
+    p {
+      max-width: 74ch;
+      color: var(--ink-soft);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      width: 100%;
+      padding: 1.2rem;
+    }
+
+    .paper {
+      width: var(--content);
+      margin: 0 auto;
+      background: var(--paper);
+      min-height: calc(100vh - 2.4rem);
+      box-shadow:
+        0 34px 80px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(240, 221, 93, 0.08), transparent 30%),
+        linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.02));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(247, 244, 238, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(1040px, calc(100vw - 4rem));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .menu a:hover,
+    .menu a:focus-visible {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 6px;
+      outline: none;
+    }
+
+    .call-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.62rem 1rem;
+      background: var(--yellow);
+      color: #111;
+      font-weight: 800;
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow: 4px 4px 0 #111;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .call-btn:hover,
+    .call-btn:focus-visible {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #111;
+      outline: none;
+    }
+
+    main {
+      width: min(1040px, calc(100vw - 4rem));
+      margin: 0 auto;
+      padding: 2.2rem 0 4.5rem;
+      position: relative;
+    }
+
+    section {
+      margin-top: 3.2rem;
+      position: relative;
+    }
+
+    section:first-of-type {
+      margin-top: 0;
+    }
+
+    section + section {
+      padding-top: 2.3rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 800;
+      color: #1d1d1d;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero {
+      padding-top: 0.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(350px, 1.15fr) minmax(260px, 0.85fr);
+      gap: clamp(1rem, 3vw, 2.4rem);
+      align-items: start;
+    }
+
+    .headline-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .headline-wrap::before {
+      content: "";
+      position: absolute;
+      left: -0.55rem;
+      top: 0.35rem;
+      width: calc(100% + 1.1rem);
+      height: 85%;
+      background: var(--yellow);
+      z-index: 0;
+      transform: rotate(-1.1deg);
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 5vw, 4.45rem);
+      max-width: 13.2ch;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-sub {
+      margin-top: 1rem;
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+      color: #1f1f1f;
+    }
+
+    .hero-actions {
+      margin-top: 1.15rem;
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-actions .primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.72rem 1.02rem;
+      background: #151515;
+      color: #f9f6ef;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-actions .secondary {
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .hero-micro {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: #2d2d2d;
+    }
+
+    .logo-runner {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .logo-chip {
+      background: #ece8de;
+      padding: 0.35rem 0.55rem;
+      font-size: 0.67rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      color: #2a2a2a;
+    }
+
+    .portrait {
+      position: relative;
+      isolation: isolate;
+      margin-top: 0.6rem;
+    }
+
+    .portrait::before {
+      content: "";
+      position: absolute;
+      inset: 8% -6% -8% 7%;
+      background: #121212;
+      z-index: -2;
+      transform: rotate(-1.4deg);
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: -5% 9% 73% -3%;
+      background: var(--yellow);
+      z-index: -1;
+      transform: rotate(2deg);
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1497 / 1603;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(104%);
+    }
+
+    .portrait-tag {
+      position: absolute;
+      bottom: -0.9rem;
+      left: 10%;
+      background: var(--yellow);
+      color: #111;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      padding: 0.38rem 0.55rem;
+      box-shadow: 2px 2px 0 #111;
+    }
+
+    h2 {
+      font-size: clamp(1.68rem, 3.1vw, 2.75rem);
+      max-width: 20ch;
+    }
+
+    .proof-bar {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+
+    .proof-placeholder {
+      min-height: 100px;
+      display: grid;
+      place-items: center;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #2d2d2d;
+    }
+
+    .proof-placeholder img {
+      max-width: 100%;
+      height: 100px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .proof-line {
+      margin-top: 0.9rem;
+      font-size: 0.96rem;
+      color: #222;
+      font-weight: 600;
+    }
+
+    .recognition-list {
+      margin-top: 1rem;
+      list-style: none;
+      display: grid;
+      gap: 0.62rem;
+    }
+
+    .recognition-list li {
+      padding-left: 1rem;
+      position: relative;
+      color: #262626;
+      max-width: 80ch;
+    }
+
+    .recognition-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.67rem;
+      width: 6px;
+      height: 6px;
+      background: #141414;
+      border-radius: 999px;
+    }
+
+    .recognition-close {
+      margin-top: 2rem;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      font-weight: 900;
+      color: #171717;
+      background: linear-gradient(transparent 60%, var(--yellow-soft) 60%);
+      display: inline-block;
+      padding-right: 0.2rem;
+    }
+
+    .outcome-grid {
+      margin-top: 1.2rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .outcome {
+      padding-right: 1rem;
+    }
+
+    .outcome + .outcome {
+      border-left: 1px solid var(--line);
+      padding-left: 1rem;
+    }
+
+    .outcome h3 {
+      font-size: 1.28rem;
+      margin-bottom: 0.5rem;
+      max-width: 20ch;
+    }
+
+    .outcome p {
+      font-size: 0.95rem;
+    }
+
+    .outcomes-close {
+      margin-top: 1rem;
+      color: #181818;
+      font-weight: 700;
+    }
+
+    .approach-lead {
+      margin-top: 0.8rem;
+    }
+
+    .phases {
+      margin-top: 1.2rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .phase {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .phase:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .phase-num {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: #1d1d1d;
+      background: var(--yellow);
+      padding: 0.28rem 0.4rem;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .phase h3 {
+      font-size: 1.24rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .artifact {
+      margin-top: 0.35rem;
+      color: #171717;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .mini-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .mini-list {
+      margin-top: 0.8rem;
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .mini-list li {
+      position: relative;
+      padding-left: 1rem;
+      color: #252525;
+    }
+
+    .mini-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68rem;
+      width: 6px;
+      height: 6px;
+      background: #121212;
+      border-radius: 999px;
+    }
+
+    .quote {
+      background: var(--yellow);
+      padding: 1.2rem;
+      transform: rotate(-1deg);
+      box-shadow: 7px 7px 0 #121212;
+    }
+
+    .quote p {
+      color: #101010;
+      font-size: 1.04rem;
+      max-width: 29ch;
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 0.72rem;
+      font-size: 0.77rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      color: #141414;
+      font-style: normal;
+    }
+
+    .testimonials {
+      margin-top: 1.05rem;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .testimonial {
+      padding-left: 0.75rem;
+      border-left: 3px solid #191919;
+      min-height: 170px;
+      display: grid;
+      align-content: space-between;
+      gap: 0.65rem;
+    }
+
+    .testimonial p {
+      font-size: 0.92rem;
+      color: #262626;
+    }
+
+    .testimonial cite {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+      color: #151515;
+      font-style: normal;
+    }
+
+    .testimonials-close {
+      margin-top: 1rem;
+      font-weight: 700;
+      color: #181818;
+    }
+
+    .about-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+    }
+
+    .cred-list {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .cred-list li {
+      padding-left: 1rem;
+      position: relative;
+      color: #242424;
+      font-size: 0.94rem;
+    }
+
+    .cred-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68rem;
+      width: 6px;
+      height: 6px;
+      background: #141414;
+      border-radius: 999px;
+    }
+
+    .about-close {
+      margin-top: 0.8rem;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.18rem;
+      line-height: 1.24;
+      color: #151515;
+    }
+
+    .cta {
+      background: #141414;
+      color: #f8f4ea;
+      margin-top: 3.4rem;
+      padding: clamp(1.2rem, 3vw, 2.2rem);
+    }
+
+    .cta h2,
+    .cta p {
+      color: #f8f4ea;
+    }
+
+    .cta h2 {
+      max-width: 20ch;
+    }
+
+    .cta-actions {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .cta .book {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.05rem;
+      background: var(--yellow);
+      color: #111;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      box-shadow: 4px 4px 0 #f8f4ea;
+    }
+
+    .cta .faq-link {
+      color: #f8f4ea;
+      font-size: 0.87rem;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+      font-weight: 700;
+    }
+
+    .referral {
+      margin-top: 0.85rem;
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .copy-link {
+      background: transparent;
+      color: #f6edbe;
+      border: 1px solid #f6edbe;
+      padding: 0.32rem 0.6rem;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .copy-status {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      color: var(--yellow);
+      min-width: 98px;
+    }
+
+    .faq {
+      margin-top: 2.4rem;
+    }
+
+    .faq-item {
+      padding: 0.95rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    details summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 800;
+      color: #141414;
+      font-size: 1rem;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      color: #252525;
+    }
+
+    footer {
+      margin-top: 2.8rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.84rem;
+      color: #2f2f2f;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .float-call {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 60;
+      background: var(--yellow);
+      color: #111;
+      padding: 0.66rem 0.96rem;
+      font-size: 0.79rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 900;
+      box-shadow: 4px 4px 0 #111;
+    }
+
+    .float-call:hover,
+    .float-call:focus-visible {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #111;
+      outline: none;
+    }
+
+    @media (max-width: 1060px) {
+      .proof-bar {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .testimonials {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .topbar-inner,
+      main {
+        width: min(1040px, calc(100vw - 2.4rem));
+      }
+
+      .hero-grid,
+      .mini-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome + .outcome {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--line);
+        padding-top: 0.9rem;
+      }
+
+      .phase {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+      }
+
+      .testimonials {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 660px) {
+      .site {
+        padding: 0;
+      }
+
+      .paper {
+        width: 100%;
+        min-height: 100vh;
+        box-shadow: none;
+      }
+
+      .topbar {
+        position: static;
+      }
+
+      .topbar-inner {
+        width: calc(100vw - 1.6rem);
+        min-height: 64px;
+        padding: 0.5rem 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+      }
+
+      .menu {
+        gap: 0.8rem;
+      }
+
+      main {
+        width: calc(100vw - 1.6rem);
+        padding-top: 1.3rem;
+      }
+
+      .proof-bar,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .float-call {
+        right: 0.6rem;
+        bottom: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <div class="paper">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="#top">Keith Hopper</a>
+          <nav class="menu" aria-label="Primary">
+            <a href="#outcomes">Work</a>
+            <a href="#approach">Approach</a>
+            <a href="#proof">Proof</a>
+            <a href="#about">About</a>
+          </nav>
+          <a class="call-btn" href="#book-call">Book a Call</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="top">
+          <div class="hero-grid">
+            <div>
+              <p class="eyebrow">A strategic path forward under uncertainty</p>
+              <div class="headline-wrap">
+                <h1>Create belief in your new initiatives.</h1>
+              </div>
+              <p class="hero-sub">When there are too many options, no clear story, and leadership misalignment, I help you cut through uncertainty to an evidence-backed direction your team can get excited about.</p>
+              <div class="hero-actions">
+                <a class="primary" href="#book-call">Book a short, no-commitment call</a>
+                <a class="secondary" href="#recognition">See if this feels familiar</a>
+              </div>
+              <p class="hero-micro">Bring the messy version. No prep required.</p>
+              <!-- <div class="logo-runner" aria-label="Top logo placeholders">
+                <span class="logo-chip">Logo Placeholder</span>
+                <span class="logo-chip">Logo Placeholder</span>
+                <span class="logo-chip">Logo Placeholder</span>
+                <span class="logo-chip">Logo Placeholder</span>
+              </div> -->
+            </div>
+            <div class="portrait">
+              <img src="./hero-image.jpg" alt="Keith Hopper headshot">
+              <!-- <div class="portrait-tag"></div> -->
+            </div>
+          </div>
+        </section>
+
+        <section id="proof">
+          <h3>Trusted by leaders at</h3>
+          <div class="proof-bar" aria-label="Client logo placeholders">
+            <div class="proof-placeholder">
+              <img src="./logo_hbs_bw.png" alt="Harvard Business School logo">
+            </div>
+            <div class="proof-placeholder">
+              <img src="./logo_tnc_bw.png" alt="The Nature Conservancy logo">
+            </div>
+            <div class="proof-placeholder">
+              <img src="./logo_fid_bw.png" alt="Fidelity Investments logo">
+            </div>
+            <div class="proof-placeholder">
+              <img src="./logo_smr_bw.png" alt="Sloan Management Review logo">
+            </div>
+            <div class="proof-placeholder">
+              <img src="./logo_csm_bw.png" alt="Christian Science Monitor logo">
+            </div>
+            <div class="proof-placeholder">
+              <img src="./logo_olin_bw.png" alt="Olin College logo">
+            </div>
+          </div>
+          <p class="proof-line">High-stakes initiatives, mature organizations, real constraints, clear decisions.</p>
+        </section>
+
+        <section id="recognition">
+          <h2>If your last strategy meeting produced more directions than conviction, you are not alone.</h2>
+          <p>This is the pattern I see when operators are asked to invent the future inside organizations built to run in the present.</p>
+          <ul class="recognition-list">
+            <li>Everyone brings a different safe idea grounded in past wins</li>
+            <li>You are data-rich, insight-poor</li>
+            <li>Analysis isn't inspiring a powerful direction</li>
+            <li>Team agrees in meetings, but lacks alignment in execution</li>
+          </ul>
+          <p class="recognition-close">You do not need more analysis. You need a direction grounded in truth and gets everyone moving.</p>
+        </section>
+
+        <section id="outcomes">
+          <p class="eyebrow">Outcomes</p>
+          <h2>What you will have when we are done</h2>
+          <div class="outcome-grid">
+            <article class="outcome">
+              <h3>Evidence that actually changes minds</h3>
+              <p>Customer and employee discovery, sharp synthesis, and the quotes and patterns that reveal what is really driving behavior.</p>
+            </article>
+            <article class="outcome">
+              <h3>A strategic direction with a narrative people can repeat</h3>
+              <p>A clear strategic spine: the simplest true story, the choice you are making, what you are not doing, and why this direction wins.</p>
+            </article>
+            <article class="outcome">
+              <h3>A near-term momentum plan</h3>
+              <p>A 30 to 90 day plan for iterative learning and quick wins: what to test, what to stop, what to instrument, and how to build belief through progress.</p>
+            </article>
+          </div>
+          <p class="outcomes-close">This is not a report. It is a decision, a story, and a path your team can execute.</p>
+        </section>
+
+        <section id="approach">
+          <p class="eyebrow">Approach</p>
+          <h2>How I work: high-touch, structured, and specific</h2>
+          <p class="approach-lead">I am not a coach who only reflects and not a consultant who disappears into slides. I am a thought partner who goes deep, brings perspective, and creates alignment and action.</p>
+          <div class="phases">
+            <article class="phase">
+              <div><span class="phase-num">Phase 1</span></div>
+              <div>
+                <h3>Clarify the real question</h3>
+                <p>What is the decision you are actually trying to make, and what is the problem behind the problem?</p>
+                <p class="artifact">Artifact: Crisp problem frame plus what must be true for any direction to work.</p>
+              </div>
+            </article>
+            <article class="phase">
+              <div><span class="phase-num">Phase 2</span></div>
+              <div>
+                <h3>Extract the insight</h3>
+                <p>Focused discovery to surface what your organization is missing, not broad research.</p>
+                <p class="artifact">Artifact: Insight brief with evidence and quotes.</p>
+              </div>
+            </article>
+            <article class="phase">
+              <div><span class="phase-num">Phase 3</span></div>
+              <div>
+                <h3>Choose the spine</h3>
+                <p>Compress the sprawl into a few high-leverage insights and a single direction people can believe in.</p>
+                <p class="artifact">Artifact: Strategic spine plus narrative you can use in the room.</p>
+              </div>
+            </article>
+            <article class="phase">
+              <div><span class="phase-num">Phase 4</span></div>
+              <div>
+                <h3>Build momentum</h3>
+                <p>Translate insight to decision to behavior to systems and metrics, tuned to your constraints.</p>
+                <p class="artifact">Artifact: 30 to 90 day plan with experiments, milestones, and an alignment approach.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="mini-case">
+          <p class="eyebrow">Mini-Case</p>
+          <h2>Reimagining Reunions at Harvard Business School</h2>
+          <div class="mini-grid">
+            <div>
+              <p>Post-COVID, “Reimagining Reunions” was clearly important, but unclear what it meant, which direction to pursue, and how to align alumni, leadership, and staff.</p>
+              <ul class="mini-list">
+                <li>Structured stakeholder input without letting it sprawl.</li>
+                <li>Synthesized underlying insight into a compelling through line.</li>
+                <li>Built alignment around a direction people were excited to move on.</li>
+              </ul>
+              <p class="outcomes-close">The initiative moved from ambiguity and slow alignment to a shared direction that catalyzed momentum.</p>
+            </div>
+            <aside class="quote">
+              <p>“Keith developed the compelling through line that everyone could get excited about. It catapulted the project forward.”</p>
+              <cite>MJ Keogh, Harvard Business School</cite>
+            </aside>
+          </div>
+        </section>
+
+        <section id="testimonials">
+          <p class="eyebrow">Testimonials</p>
+          <h2>Selected client perspectives</h2>
+          <div class="testimonials">
+            <article class="testimonial">
+              <p>“Keith helped us move from broad ideas to a clear through line the leadership team could support and act on.”</p>
+              <cite>Harvard Business School</cite>
+            </article>
+            <article class="testimonial">
+              <p>“He brought experimentation discipline and audience clarity that turned uncertainty into focused strategy.”</p>
+              <cite>MIT Sloan Management Review</cite>
+            </article>
+            <article class="testimonial">
+              <p>“In a lonely innovation moment, his synthesis gave us language and energy to align across teams quickly.”</p>
+              <cite>The Nature Conservancy</cite>
+            </article>
+            <article class="testimonial">
+              <p>“He helped us unlock a messaging puzzle where market resistance felt stubborn and hard to decode.”</p>
+              <cite>Learning Seeds</cite>
+            </article>
+            <article class="testimonial">
+              <p>“His framing sharpened our ideal customer profile, clarified differentiation, and kept us focused on the bigger picture.”</p>
+              <cite>Form + Function</cite>
+            </article>
+          </div>
+          <p class="testimonials-close">Common thread: insight that changes minds, alignment that sticks, movement that matters.</p>
+        </section>
+
+        <section id="about">
+          <p class="eyebrow">About Keith</p>
+          <h2>I help operators make real decisions under uncertainty</h2>
+          <div class="about-grid">
+            <div>
+              <p>My work lives where politics, incentives, and legacy constraints are part of the terrain. I help teams find the simplest true story, pressure-test it, and turn it into a direction people can commit to.</p>
+              <p class="about-close">My job is to be the editor of your organization's genius and help you turn it into belief and forward motion.</p>
+            </div>
+            <ul class="cred-list">
+              <li>Product and customer discovery background built for ambiguity, not certainty.</li>
+              <li>Senior facilitator at Harvard Business School's Digital, Data and Design Institute.</li>
+              <li>Former product leadership experience, including NPR.</li>
+              <li>Mentored and advised hundreds of leaders and teams navigating new initiatives.</li>
+              <li>Builder's mindset: evidence, judgment, narrative, and action.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cta" id="book-call">
+          <h2>If you are carrying a high-stakes initiative that feels stuck, let's talk.</h2>
+          <p>We will map what is stuck, what is actually being decided, and what would create belief.</p>
+          <div class="cta-actions">
+            <a class="book" href="mailto:hello@example.com?subject=Short%20Strategy%20Call">Book a short, no-commitment call</a>
+            <a class="faq-link" href="#faq">Read the FAQ</a>
+          </div>
+          <div class="referral">
+            <p>Not you, but someone comes to mind? Forward this page.</p>
+            <button class="copy-link" type="button" id="copyLinkBtn">Copy link</button>
+            <span class="copy-status" id="copyStatus" aria-live="polite">Ready</span>
+          </div>
+        </section>
+
+        <section class="faq" id="faq">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common questions before we start</h2>
+
+          <div class="faq-item">
+            <details>
+              <summary>Can we do this ourselves?</summary>
+              <p>Often, yes, eventually. The issue is usually compression, confidence, and alignment. An outside partner helps you see the simplest true story faster, surface real tradeoffs, and make the narrative land in the room.</p>
+            </details>
+          </div>
+
+          <div class="faq-item">
+            <details>
+              <summary>Do you need experience in our industry?</summary>
+              <p>I do not rely on canned industry playbooks. I rely on targeted discovery, sharp synthesis, and decision architecture, so the direction is grounded in your customers, constraints, and strengths.</p>
+            </details>
+          </div>
+
+          <div class="faq-item">
+            <details>
+              <summary>Is this just research and a deck?</summary>
+              <p>No. Discovery is a means to an end: a direction people believe and a near-term momentum plan that turns belief into movement.</p>
+            </details>
+          </div>
+        </section>
+
+        <footer>
+          <p>Category: Focused path forward for high-uncertainty initiatives inside established organizations.</p>
+          <p>&copy; <span id="year"></span> Keith Hopper. All rights reserved.</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <a class="float-call" href="#book-call">Book a Call</a>
+
+  <script>
+    (function () {
+      var year = document.getElementById("year");
+      if (year) year.textContent = String(new Date().getFullYear());
+
+      var copyButton = document.getElementById("copyLinkBtn");
+      var copyStatus = document.getElementById("copyStatus");
+
+      if (copyButton && copyStatus) {
+        copyButton.addEventListener("click", function () {
+          if (!navigator.clipboard) {
+            copyStatus.textContent = "Copy manually";
+            return;
+          }
+          navigator.clipboard.writeText(window.location.href).then(function () {
+            copyStatus.textContent = "Link copied";
+            setTimeout(function () {
+              copyStatus.textContent = "Ready";
+            }, 1600);
+          }).catch(function () {
+            copyStatus.textContent = "Copy manually";
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
